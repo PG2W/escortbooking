@@ -56,7 +56,7 @@ function datetimeChangeListener() {
   var escort = document.getElementById("escort").value;
   var params = "?type=reserve" + "&escort=" + escort + "&date=" + date;
 
-  request.open("POST", "http://127.0.0.1:1234/gettimes" + params, true);
+  request.open("POST", "http://134.122.62.11:1234/gettimes" + params, true);
   request.send();
   request.onload = () => {
     if (request.responseText == "[]"){
