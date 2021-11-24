@@ -5,7 +5,6 @@ import json
 from db import Database
 
 
-
 app = Flask(__name__)
 db = Database("dbdb")
 
