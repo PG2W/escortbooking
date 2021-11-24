@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %} 
+<title>Escort booking service</title>
+
+{% endblock %}
+
+{% block body %} 
+
+        <!-- Carousel Start -->
+    <div class="startpage">
+        <div class="welcome">
+            <h1>Hvad vil du habibi?</h1>
+        </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/reserve">Reserver</a>
+                    </th>
+                    <th>
+                        <a href="/change">Ændre din reservation</a>
+                    </th>
+                    <th>
+                        <a href="/delete">Slet din reservation</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3" align="center">
+                        <a href="/admin">Alle reservationer (kun admin)</a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+        <!-- Carousel End -->
+
+
+{% endblock %}

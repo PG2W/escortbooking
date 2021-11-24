@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block head %}
+
+<title>Delete</title>
+
+{% endblock %} {% block body %}
+
+
+
+<div class="startpage">
+{% if type == "opened" or type == "noescort" %}
+{% if type == "noescort" %}
+<th>noting</th>
+{% endif %}
+<form action="/change" method="post">
+    <table>
+        <tr>
+            <th>Navn</th>
+            <th>Booking ID</th>
+        </tr>
+        <tr>
+            <input type="hidden" id="reqtype" name="reqtype" value="next">
+            <td><input type="text" name="name" id="nameinput" required/></td>
+            <td><input type="text" name="id" id="bookingid" required/></td>
+            <td><input type="submit" name="submit" id="submitb" value="Select" /></td>
+        </tr>
+
+    </table>
+</form>
+
+{% endif %}
+
+
+{% if type == "posted" %}
+<form action="/change" method="post">
+  
+
+<div class="table">
+
+    <table>
+      <tr><h1>Hvad vil du habibi?</h1></tr>
+      <tr>
+        <th>name</th>
+        <th>date</th>
+        <th>time</th>
+        <th>hours</th>
+        <th>escort</th>
+      </tr>
+
+      <tr>
+        <input type="hidden" id="bookingId" name="bookingId" value="{{bookingId}}">
+        <input type="hidden" id="reqtype" name="reqtype" value="change">
+        <td>
+          <input type="text" name="name" id="nameinput" value="{{name}}" required>
+        </td>
+        <td>
+          <input type="date" name="date" id="dateinput" value="{{date}}" min="{{today}}" required>
+        </td>
+        <td>
+          <select type="time" name="time" id="timeinput" value={{time}} required> </select>
+        </td>
+        <td>
+          <select type="text" name="hours" id="hoursinput" style="width:50px" required> </select>
+        </td>
+        <td>
+          <select name="escort" id="escort" required>
+              {% for escort in escortslist %}
+              <option value = "{{escort}}">{{escort}}</option>
+              {% endfor %}
+          </select>
+          <script src="static/js/jquery.js"></script>
+          <script src="static/js/updatechange.js"></script>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" align="center">
+          <input type="submit" value="Change" />
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+{% endif %}
+</div>
+{% endblock %}

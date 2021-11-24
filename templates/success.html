@@ -1,0 +1,26 @@
+{% extends "base.html" %}  {% block head %}
+
+<title>Success</title>
+
+{% endblock %} {% block body %}
+
+{% if type == "reserve" %}
+<div class="startpage">
+<h2>Good, dit bookingid er: {{ bookingid }} </h2>
+</div>
+{% endif %}
+
+{% if type == "delete" %}
+
+<h2>Good, slettet</h2>
+
+{% endif %}
+
+{% if type == "change" %}
+<div class="startpage">
+<h2>Good, dit booking med bookingid {{ bookingid }} er blevet ændret</h2>
+</div>
+{% endif %}
+
+{% endblock %}
+

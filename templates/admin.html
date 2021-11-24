@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block head %}
+
+<title>Alle reservationer</title>
+
+{% endblock %} {% block body %} {% if type == "login" or type == "wrongp" %}
+
+<div class="startpage">
+  <form action="/admin" method="post">
+    <table>
+      <tr colspan="2" align="center">
+        <td>Password:</td>
+      </tr>
+
+      {% if type == "wrongp" %}
+      <tr colspan="2" align="center">
+        <td>Wrong password</td>
+      </tr>
+      {% endif %}
+
+      <tr>
+        <td>
+          <input type="password" name="password" id="password" required />
+        </td>
+        <td>
+          <input type="submit" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+{% endif %} {% if type == "admin" %}
+
+<div class="startpage">
+  <table>
+    {% for r in reservationslist %}
+
+    <tr>
+        <th>
+            <h3>Booking id: {{r[0]}}: </h3>Name: {{r[1]}}, date: {{r[2]}}, time: {{r[3]}}, escort: {{r[4]}}
+        </th>
+    </tr>
+
+    {% endfor %}
+  </table>
+</div>
+
+{% endif %} {% endblock %}

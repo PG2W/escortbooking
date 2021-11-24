@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block head %}
+
+<title>Delete</title>
+
+{% endblock %} {% block body %}
+
+<div class="startpage">
+<form action="/delete" method="post">
+  <table>
+    {% if type == "invalid" %}
+    <tr>
+        <th colspan="2" align="center">Invalid information</th>
+    </tr>
+    {% endif %}
+    <tr>
+        <th>Navn</th>
+        <th>Booking ID</th>
+    </tr>
+    <tr>
+        <input type="hidden" id="reqtype" name="reqtype" value="next">
+        <td><input type="text" name="name" id="nameinput" required/></td>
+        <td><input type="text" name="id" id="bookingid" required/></td>
+        <td><input type="submit" name="submit" id="submitb" value="Select" /></td>
+    </tr>
+
+</table>
+</form>
+</div>
+
+{% endblock %}

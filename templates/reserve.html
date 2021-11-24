@@ -1,0 +1,52 @@
+{% extends "base.html" %}  {% block head %}
+
+<title>Reserve</title>
+
+{% endblock %} {% block body %}
+<div class="startpage">
+<form action="/reserve" method="post">
+  <table>
+    <tr>
+        <h1>Hvad vil du habibi?</h1>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th>date</th>
+      <th>time</th>
+      <th>hours</th>
+      <th>escort</th>
+    </tr>
+
+    <tr>
+      <td>
+        <input type="text" name="name" id="nameinput" required>
+      </td>
+      <td>
+        <input type="date" name="date" id="dateinput" value="{{today}}" min="{{today}}" required>
+      </td>
+      <td>
+        <select type="time" name="time" id="timeinput" required> </select>
+      </td>
+      <td>
+        <select type="text" name="hours" id="hoursinput" style="width:50px" required> </select>
+      </td>
+      <td>
+        <select name="escort" id="escort" required>
+            {% for escort in escortslist %}
+            <option value = "{{escort}}">{{escort}}</option>
+            {% endfor %}
+        </select>
+        <script src="static/js/jquery.js"></script>
+        <script src="static/js/update.js"></script>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" align="center">
+        <input type="submit" value="Reserve" />
+      </td>
+    </tr>
+  </table>
+</form>
+</div>
+
+{% endblock %}
