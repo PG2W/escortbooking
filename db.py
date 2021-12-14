@@ -125,7 +125,7 @@ class Database():
     
     def deletereservation(self, bookingid):
         self.opencon()
-        
+        self.cur.execute("DELETE FROM reservations WHERE rowid = (?) AND name = (?)", (bookingid))
         self.closecon()
 
 
